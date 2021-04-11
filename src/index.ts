@@ -1,50 +1,68 @@
 import { Square } from "./core/Square";
 import {SquarePageViewer} from './core/viewer/squarePageViewer'
 import $ from 'jquery'
+import { SquareGroup } from "./core/SquareGroup";
 
-const sq = new Square()
-
-sq.viewer = new SquarePageViewer(sq, $('#root'))
-
-sq.point = {
+let group = new SquareGroup([
+  {
+    x: -1,
+    y: 0
+  },
+  {
+    x: 0,
+    y: 1
+  },
+  {
+    x: 0,
+    y: 0
+  },
+  {
+    x: 0,
+    y: -1
+  }
+], {
   x: 3,
-  y: 4
-}
-sq.color = '#ff0'
-console.log(sq.color)
-$('#hide').on('click', function () {
-  if (sq.viewer) {
-    sq.viewer.remove()
-  }
-})
-$('#moveDown').on('click', function () {
-  let y = sq.point.y
-  sq.point = {
-    x: 3,
-    y: y + 1
-  }
-})
-$('#show').on('click', function () {
-  sq.viewer = new SquarePageViewer(sq, $('#root'))
-})
-// setInterval(() => {
-//   let y = sq.point.y
-//   sq.point = {
-//     x: 3,
-//     y: y + 1
-//   }
-// },1000)
-// import { IViewer } from "./core/types";
+  y: 3
+}, '#ff0')
 
-// class SquareConsoleViewer implements IViewer {
-//   constructor (private square: Square) {
-//   }
-//   show(): void {
-//     console.log(this.square.point, this.square.color)    
-//   }
-//   remove(): void {
-//     throw new Error("Method not implemented.");
-//   }
-  
+// const sq = new Square()
+
+// sq.viewer = new SquarePageViewer(sq, $('#root'))
+
+// sq.point = {
+//   x: 3,
+//   y: 4
 // }
-// var sq = new Square()
+// sq.color = '#ff0'
+// $('#hide').on('click', function () {
+//   if (sq.viewer) {
+//     sq.viewer.remove()
+//   }
+// })
+$('#moveDown').on('click', function () {
+  group.centerPoint = {
+    x: group.centerPoint.x,
+    y: group.centerPoint.y + 1
+  }
+})
+$('#moveRight').on('click', function () {
+  group.centerPoint = {
+    x: group.centerPoint.x + 1,
+    y: group.centerPoint.y
+  }
+})
+$('#moveLeft').on('click', function () {
+  group.centerPoint = {
+    x: group.centerPoint.x - 1,
+    y: group.centerPoint.y
+  }
+})
+$('#moveUp').on('click', function () {
+  group.centerPoint = {
+    x: group.centerPoint.x,
+    y: group.centerPoint.y - 1
+  }
+})
+// $('#show').on('click', function () {
+//   sq.viewer = new SquarePageViewer(sq, $('#root'))
+// })
