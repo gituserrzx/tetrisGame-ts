@@ -27,7 +27,6 @@ export class SquareGroup {
     let arr: Square[] = []
     _shape.forEach(item => {
       let sq = new Square()
-      sq.viewer = new SquarePageViewer(sq, $('#root'))
       sq.point = {
         x: item.x + _centerPoint.x,
         y: item.y + _centerPoint.y

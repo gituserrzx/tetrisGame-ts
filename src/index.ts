@@ -2,28 +2,17 @@ import { Square } from "./core/Square";
 import {SquarePageViewer} from './core/viewer/squarePageViewer'
 import $ from 'jquery'
 import { SquareGroup } from "./core/SquareGroup";
+import { createTetris } from "./core/Tetris";
 
-let group = new SquareGroup([
-  {
-    x: -1,
-    y: 0
-  },
-  {
-    x: 0,
-    y: 1
-  },
-  {
-    x: 0,
-    y: 0
-  },
-  {
-    x: 0,
-    y: -1
-  }
-], {
-  x: 3,
-  y: 3
-}, '#ff0')
+let group = createTetris({x: 3, y: 3})
+
+group.squares.forEach(item => {
+  item.viewer = new SquarePageViewer(item, $('#root'))
+})
+// let group = new SquareGroup(LShape, {
+//   x: 3,
+//   y: 3
+// }, '#ff0')
 
 // const sq = new Square()
 
