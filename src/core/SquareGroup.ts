@@ -1,10 +1,11 @@
 import { Square } from "./Square";
 import { Point, Shape } from "./types";
-import { SquarePageViewer } from "./viewer/squarePageViewer";
-import $ from 'jquery'
 
 export class SquareGroup {
   private _squares: readonly Square[] = []
+  get shape () {
+    return this._shape
+  }
   get squares () {
     return this._squares
   }

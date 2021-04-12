@@ -1,8 +1,8 @@
-import { Square } from "./core/Square";
 import {SquarePageViewer} from './core/viewer/squarePageViewer'
 import $ from 'jquery'
-import { SquareGroup } from "./core/SquareGroup";
 import { createTetris } from "./core/Tetris";
+import { TetrisRule } from './core/TetrisRule';
+import { MoveDirection } from './core/types';
 
 let group = createTetris({x: 3, y: 3})
 
@@ -29,27 +29,46 @@ group.squares.forEach(item => {
 //   }
 // })
 $('#moveDown').on('click', function () {
-  group.centerPoint = {
-    x: group.centerPoint.x,
-    y: group.centerPoint.y + 1
-  }
+  // let centerPoint = {
+  //   x: group.centerPoint.x,
+  //   y: group.centerPoint.y + 1
+  // }
+  // let shape = group.shape
+  // if (TetrisRule.canIMove(shape, centerPoint)) {
+  //   group.centerPoint = centerPoint
+  // }
+  TetrisRule.move(group, MoveDirection.bottom)
 })
 $('#moveRight').on('click', function () {
-  group.centerPoint = {
-    x: group.centerPoint.x + 1,
-    y: group.centerPoint.y
-  }
+  // let centerPoint = {
+  //   x: group.centerPoint.x + 1,
+  //   y: group.centerPoint.y
+  // }
+  // let shape = group.shape
+  // if (TetrisRule.canIMove(shape, centerPoint)) {
+  //   group.centerPoint = centerPoint
+  // }
+  TetrisRule.move(group, MoveDirection.right)
 })
 $('#moveLeft').on('click', function () {
-  group.centerPoint = {
-    x: group.centerPoint.x - 1,
-    y: group.centerPoint.y
-  }
+  // let centerPoint = {
+  //   x: group.centerPoint.x - 1,
+  //   y: group.centerPoint.y
+  // }
+  // let shape = group.shape
+  // if (TetrisRule.canIMove(shape, centerPoint)) {
+  //   group.centerPoint = centerPoint
+  // }
+  TetrisRule.move(group, MoveDirection.left)
 })
 $('#moveUp').on('click', function () {
-  group.centerPoint = {
+  let centerPoint = {
     x: group.centerPoint.x,
     y: group.centerPoint.y - 1
+  }
+  let shape = group.shape
+  if (TetrisRule.canIMove(shape, centerPoint)) {
+    group.centerPoint = centerPoint
   }
 })
 // $('#show').on('click', function () {

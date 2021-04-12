@@ -22,7 +22,6 @@ export class SquarePageViewer implements IViewer {
         'height': squareConfig.squareSize.height
       }).appendTo(this.container)
     }
-    console.log('color', this.square.color)
     this.dom.css({
       left: this.square.point.x * squareConfig.squareSize.width,
       top: this.square.point.y * squareConfig.squareSize.height,
