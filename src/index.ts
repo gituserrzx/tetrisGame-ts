@@ -61,15 +61,8 @@ $('#moveLeft').on('click', function () {
   // }
   TetrisRule.move(group, MoveDirection.left)
 })
-$('#moveUp').on('click', function () {
-  let centerPoint = {
-    x: group.centerPoint.x,
-    y: group.centerPoint.y - 1
-  }
-  let shape = group.shape
-  if (TetrisRule.canIMove(shape, centerPoint)) {
-    group.centerPoint = centerPoint
-  }
+$('#rotate').on('click', function () {
+  group.rotate()
 })
 // $('#show').on('click', function () {
 //   sq.viewer = new SquarePageViewer(sq, $('#root'))

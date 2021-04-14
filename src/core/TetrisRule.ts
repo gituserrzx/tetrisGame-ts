@@ -57,5 +57,4 @@ export class TetrisRule {
       return this.move(tetris, point)
     }
   }
-
 }

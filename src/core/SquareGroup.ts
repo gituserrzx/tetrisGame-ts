@@ -15,16 +15,51 @@ export class SquareGroup {
   set centerPoint (val: Point) {
     this._centerPoint = val
     if (this._squares) {
-      this._shape.forEach((item, i) => {
-        let point = {
-          x: item.x + this._centerPoint.x,
-          y: item.y + this._centerPoint.y
+      // this._shape.forEach((item, i) => {
+      //   let point = {
+      //     x: item.x + this._centerPoint.x,
+      //     y: item.y + this._centerPoint.y
+      //   }
+      //   this._squares[i].point = point
+      // })
+      this.renderShape()
+    }
+  }
+  private renderShape () {
+     this._shape.forEach((item, i) => {
+      let point = {
+        x: item.x + this._centerPoint.x,
+        y: item.y + this._centerPoint.y
+      }
+      this._squares[i].point = point
+    })
+  }
+  protected isClock: boolean = true  // true 顺时针旋转 false 逆时针旋转
+  afterRotateShape (shape: Shape):Shape {
+    if (this.isClock) {
+      return shape.map(item => {
+        let newP: Point = {
+          x: -item.y,
+          y: item.x
         }
-        this._squares[i].point = point
+        return newP
+      })
+    } else {
+      return shape.map(item => {
+        let newP: Point = {
+          x: item.y,
+          y: -item.x
+        }
+        return newP
       })
     }
   }
-  constructor (private _shape: Shape,private _centerPoint: Point,private _color: string) {
+  rotate () {
+    let newShape: Shape = this.afterRotateShape(this._shape)
+    this._shape = newShape
+    this.renderShape()
+  }
+  constructor (private _shape: Shape, private _centerPoint: Point, private _color: string) {
     let arr: Square[] = []
     _shape.forEach(item => {
       let sq = new Square()
