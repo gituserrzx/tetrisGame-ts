@@ -24,6 +24,9 @@ class TShape extends SquareGroup {
       }
     ], centerPoint, color)
   }
+  rotate () {
+    super.rotate()
+  }
 }
 // export const TShape:Shape = [
 //   {
@@ -63,6 +66,9 @@ class LShape extends SquareGroup {
         y: -1
       }
     ], centerPoint, color)
+  }
+  rotate () {
+    super.rotate()
   }
 }
 // export const LShape: Shape = [
@@ -105,6 +111,9 @@ class LMirrorShape extends SquareGroup {
       }
     ], centerPoint, color)
   }
+  rotate () {
+    super.rotate()
+  }
 }
 // export const LMirrorShape: Shape = [
 //   {
@@ -145,6 +154,11 @@ class SShape extends SquareGroup {
         y: 0
       }
     ], centerPoint, color)
+  }
+  rotate () {
+    this.isClock = !this.isClock
+    console.log('res.data', this.isClock)
+    super.rotate()
   }
 }
 // export const SShape: Shape = [
@@ -187,6 +201,10 @@ class SMirrorShape extends SquareGroup {
       }
     ], centerPoint, color)
   }
+  rotate () {
+    this.isClock = !this.isClock
+    super.rotate()
+  }
 }
 // export const SMirrorShape: Shape = [
 //   {
@@ -226,6 +244,8 @@ class SquareShape extends SquareGroup {
         y: 1
       }
     ], centerPoint, color)
+  }
+  rotate () {
   }
 }
 // export const SquareShape: Shape = [
@@ -267,6 +287,10 @@ class LineShape extends SquareGroup {
       }
     ]
     , centerPoint, color)
+  }
+  rotate () {
+    this.isClock = !this.isClock
+    super.rotate()
   }
 }
 // export const LineShape: Shape = [

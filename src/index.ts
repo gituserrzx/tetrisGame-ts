@@ -59,6 +59,7 @@ $('#moveLeft').on('click', function () {
   // if (TetrisRule.canIMove(shape, centerPoint)) {
   //   group.centerPoint = centerPoint
   // }
+  console.log('shape', group)
   TetrisRule.move(group, MoveDirection.left)
 })
 $('#rotate').on('click', function () {

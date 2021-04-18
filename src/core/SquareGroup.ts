@@ -1,4 +1,5 @@
 import { Square } from "./Square";
+import { TetrisRule } from "./TetrisRule";
 import { Point, Shape } from "./types";
 
 export class SquareGroup {
@@ -54,10 +55,24 @@ export class SquareGroup {
       })
     }
   }
+  // private rotateRule (): boolean {
+  //   let newS = this._shape.map(item => {
+  //     let nPoint = {
+  //       x: item.x + this._centerPoint.x,
+  //       y: item.y + this._centerPoint.y
+  //     }
+  //     return nPoint
+  //   })
+  //   let result = new.some(item => {
+  //     if ()
+  //   })
+  // }
   rotate () {
     let newShape: Shape = this.afterRotateShape(this._shape)
-    this._shape = newShape
-    this.renderShape()
+    if (TetrisRule.canIMove(newShape, this._centerPoint)) {
+      this._shape = newShape
+      this.renderShape()
+    }
   }
   constructor (private _shape: Shape, private _centerPoint: Point, private _color: string) {
     let arr: Square[] = []

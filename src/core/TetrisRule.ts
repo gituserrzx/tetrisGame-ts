@@ -3,10 +3,10 @@ import { MoveDirection, Point, Shape } from "./types";
 import viewerConfig from './viewer/viewerConfig'
 
 function isPoint (obj: any): obj is Point {
-  if (obj.x) {
-    return true
+  if (obj.x === undefined) {
+    return false
   }
-  return false
+  return true
 }
 
 export class TetrisRule {
