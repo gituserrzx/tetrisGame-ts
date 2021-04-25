@@ -26,7 +26,15 @@ export class TetrisRule {
     }
     return true
   }
-
+  static rotate (tetris: SquareGroup): boolean {
+    let newShape: Shape = tetris.afterRotateShape(tetris.shape)
+    if (this.canIMove(newShape, tetris.centerPoint)) {
+      tetris.rotate()
+      return true
+    } else {
+      return false
+    }
+  }
   static move (tetris: SquareGroup, targetPoint: Point): boolean
   static move (tetris: SquareGroup, moveDir: MoveDirection): boolean 
   static move (tetris: SquareGroup, targetPointOrDirection: Point | MoveDirection): boolean {

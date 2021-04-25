@@ -13,27 +13,25 @@ export class SquareGroup {
   get centerPoint (): Point {
     return this._centerPoint
   }
-  set centerPoint (val: Point) {
-    this._centerPoint = val
-    if (this._squares) {
-      // this._shape.forEach((item, i) => {
-      //   let point = {
-      //     x: item.x + this._centerPoint.x,
-      //     y: item.y + this._centerPoint.y
-      //   }
-      //   this._squares[i].point = point
-      // })
-      this.renderShape()
-    }
-  }
-  private renderShape () {
-     this._shape.forEach((item, i) => {
+  setSquarePoints () {
+    this._shape.forEach((item, i) => {
       let point = {
         x: item.x + this._centerPoint.x,
         y: item.y + this._centerPoint.y
       }
       this._squares[i].point = point
     })
+  }
+  set centerPoint (val: Point) {
+    this._centerPoint = val
+    if (this._squares) {
+      this.setSquarePoints()
+    }
+  }
+  rotate () {
+    let newShape = this.afterRotateShape(this._shape)
+    this._shape = newShape
+    this.setSquarePoints()
   }
   protected isClock: boolean = true  // true 顺时针旋转 false 逆时针旋转
   afterRotateShape (shape: Shape):Shape {
@@ -55,25 +53,7 @@ export class SquareGroup {
       })
     }
   }
-  // private rotateRule (): boolean {
-  //   let newS = this._shape.map(item => {
-  //     let nPoint = {
-  //       x: item.x + this._centerPoint.x,
-  //       y: item.y + this._centerPoint.y
-  //     }
-  //     return nPoint
-  //   })
-  //   let result = new.some(item => {
-  //     if ()
-  //   })
-  // }
-  rotate () {
-    let newShape: Shape = this.afterRotateShape(this._shape)
-    if (TetrisRule.canIMove(newShape, this._centerPoint)) {
-      this._shape = newShape
-      this.renderShape()
-    }
-  }
+
   constructor (private _shape: Shape, private _centerPoint: Point, private _color: string) {
     let arr: Square[] = []
     _shape.forEach(item => {

@@ -6,5 +6,9 @@ export default {
   pannelSize: {
     width: 10,
     height: 15
+  },
+  nextSize: {
+    width: 4,
+    height: 4
   }
 }
