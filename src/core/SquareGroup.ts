@@ -34,6 +34,7 @@ export class SquareGroup {
     this.setSquarePoints()
   }
   protected isClock: boolean = true  // true 顺时针旋转 false 逆时针旋转
+  // 旋转之后的状态
   afterRotateShape (shape: Shape):Shape {
     if (this.isClock) {
       return shape.map(item => {

@@ -6,6 +6,7 @@ import $ from 'jquery'
 
 import { Game } from "./core/Game";
 import { GamePageViwer } from "./core/GamePageViewer";
+import { TetrisRule } from './core/TetrisRule';
 
 // let group = createTetris({x: 3, y: 3})
 
@@ -77,4 +78,16 @@ $('#stop').on('click', function () {
 })
 $('#start').on('click', function () {
   game.start()
+})
+$('#moveDown').on('click', function () {
+  game.control_down()
+})
+$('#rotate').on('click', function () {
+  game.control_rotate()
+})
+$('#moveLeft').on('click', function () {
+  game.control_left()
+})
+$('#moveRight').on('click', function () {
+  game.control_right()
 })

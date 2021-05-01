@@ -10,10 +10,12 @@ export interface IViewer {
 }
 export type Shape = Point[]
 
+
 export enum MoveDirection {
   left,
   right,
-  bottom
+  bottom,
+  down
 }
 
 export enum GameStatus {
