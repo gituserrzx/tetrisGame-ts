@@ -9,12 +9,38 @@ export class Game {
   private _gameStatus: GameStatus = GameStatus.init // 游戏状态
   private _currTetris?: SquareGroup
   private _nextTetris: SquareGroup = createTetris({x: 0, y: 0})
-  private timer?:number
+  private timer?: any
   private duration: number = 1000
   private _exist: Square[] = []
-  private score: number = 0
+  private _score: number = 0
   constructor (private _viewer: GameViewer) {
     this.createNextTetris()
+    this._viewer.init(this)
+    this.score = 0
+  }
+  get score () {
+    return this._score
+  }
+  set score (val) {
+    this._score = val
+    this._viewer.showScore(this._score)
+    let arr = viewerConfig.levels.filter(item => {
+      if (this._score >= item.score) {
+        return item
+      }
+    })
+    let option = arr.pop()
+    console.log(arr, option, this.duration)
+    if (option!.duration === this.duration) {
+      return
+    }
+    this.duration = option!.duration
+    clearInterval(this.timer)
+    this.timer = undefined
+    this.autoDrop()
+  }
+  get gameStatus ()  {
+    return this._gameStatus
   }
   start () {
     if (this._gameStatus === GameStatus.playing) {
@@ -27,6 +53,7 @@ export class Game {
     if (!this._currTetris) {
       this.switchTetris()
     }
+    this._viewer.onGamePlay()
     this.autoDrop()
   }
   pause () {
@@ -36,12 +63,14 @@ export class Game {
     this._gameStatus = GameStatus.stop
     clearInterval(this.timer)
     this.timer = undefined
+    this._viewer.onGamePause()
   }
   init () {
     this._exist.forEach(item => {
       item.viewer!.remove()
     })
     this._exist = []
+    this.score = 0
     this._currTetris = undefined
     this.createNextTetris()
   }
@@ -96,6 +125,7 @@ export class Game {
         this._gameStatus = GameStatus.over
         clearInterval(this.timer)
         this.timer = undefined
+        this._viewer.onGameOver()
         return
       }
       this.createNextTetris()
@@ -129,7 +159,6 @@ export class Game {
     } else {
       this.score += 200
     }
-    console.log(this.score)
   }
   private hitBottom () {
     this._exist = this._exist.concat(this._currTetris!.squares)

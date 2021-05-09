@@ -37,6 +37,7 @@ export class TetrisRule {
   }
   static rotate (tetris: SquareGroup, exist: Square[]): boolean {
     let newShape: Shape = tetris.afterRotateShape(tetris.shape)
+    console.log(newShape, tetris.centerPoint)
     if (this.canIMove(newShape, tetris.centerPoint, exist)) {
       tetris.rotate()
       return true

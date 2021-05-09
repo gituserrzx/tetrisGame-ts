@@ -50,19 +50,19 @@ class LShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
     super([
       {
-        x: -2,
+        x: -1,
         y: 0
       }, 
       {
-        x: -1,
-        y: 0
-      },
-      {
         x: 0,
         y: 0
       },
       {
-        x: 0,
+        x: 1,
+        y: 0
+      },
+      {
+        x: 1,
         y: -1
       }
     ], centerPoint, color)
@@ -94,10 +94,6 @@ class LMirrorShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
     super([
       {
-        x: 2,
-        y: 0
-      },
-      {
         x: 1,
         y: 0
       },
@@ -106,7 +102,11 @@ class LMirrorShape extends SquareGroup {
         y: 0
       },
       {
-        x: 0,
+        x: -1,
+        y: 0
+      },
+      {
+        x: -1,
         y: -1
       }
     ], centerPoint, color)
@@ -115,24 +115,6 @@ class LMirrorShape extends SquareGroup {
     super.rotate()
   }
 }
-// export const LMirrorShape: Shape = [
-//   {
-//     x: 2,
-//     y: 0
-//   },
-//   {
-//     x: 1,
-//     y: 0
-//   },
-//   {
-//     x: 0,
-//     y: 0
-//   },
-//   {
-//     x: 0,
-//     y: -1
-//   }
-// ]
 
 class SShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
@@ -156,29 +138,10 @@ class SShape extends SquareGroup {
     ], centerPoint, color)
   }
   rotate () {
-    this.isClock = !this.isClock
-    console.log('res.data', this.isClock)
     super.rotate()
+    this.isClock = !this.isClock
   }
 }
-// export const SShape: Shape = [
-//   {
-//     x: 0,
-//     y: 0
-//   },
-//   {
-//     x: 0,
-//     y: 1
-//   },
-//   {
-//     x: -1,
-//     y: 1
-//   },
-//   {
-//     x: 1,
-//     y: 0
-//   }
-// ]
 
 class SMirrorShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
@@ -202,28 +165,11 @@ class SMirrorShape extends SquareGroup {
     ], centerPoint, color)
   }
   rotate () {
-    this.isClock = !this.isClock
     super.rotate()
+    this.isClock = !this.isClock
   }
 }
-// export const SMirrorShape: Shape = [
-//   {
-//     x: 0,
-//     y: 0
-//   },
-//   {
-//     x: -1,
-//     y: 0
-//   },
-//   {
-//     x: 0,
-//     y: 1
-//   },
-//   {
-//     x: 1,
-//     y: 1
-//   }
-// ]
+
 class SquareShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
     super([
@@ -248,24 +194,7 @@ class SquareShape extends SquareGroup {
   rotate () {
   }
 }
-// export const SquareShape: Shape = [
-//   {
-//     x: 0,
-//     y: 0
-//   },
-//   {
-//     x: 1,
-//     y: 0
-//   },
-//   {
-//     x: 0,
-//     y: 1
-//   },
-//   {
-//     x: 1,
-//     y: 1
-//   }
-// ]
+
 class LineShape extends SquareGroup {
   constructor (centerPoint: Point, color: string) {
     super([
@@ -289,8 +218,8 @@ class LineShape extends SquareGroup {
     , centerPoint, color)
   }
   rotate () {
-    this.isClock = !this.isClock
     super.rotate()
+    this.isClock = !this.isClock
   }
 }
 // export const LineShape: Shape = [

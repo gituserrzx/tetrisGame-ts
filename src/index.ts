@@ -73,6 +73,7 @@ import { TetrisRule } from './core/TetrisRule';
 // //   sq.viewer = new SquarePageViewer(sq, $('#root'))
 // // })
 let game = new Game(new GamePageViwer())
+
 $('#stop').on('click', function () {
   game.pause()
 })

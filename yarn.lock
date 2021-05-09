@@ -10,6 +10,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/jquery@^3.5.5":
+  version "3.5.5"
+  resolved "https://registry.npm.taobao.org/@types/jquery/download/@types/jquery-3.5.5.tgz?cache=0&sync_timestamp=1613379078625&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjquery%2Fdownload%2F%40types%2Fjquery-3.5.5.tgz#2c63f47c9c8d96693d272f5453602afd8338c903"
+  integrity sha1-LGP0fJyNlmk9Jy9UU2Aq/YM4yQM=
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/minimatch@*":
   version "3.0.4"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.4.tgz#f0ec25dbf2f0e4b18647313ac031134ca5b24b21"
@@ -19,6 +26,16 @@
   version "14.14.37"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.37.tgz?cache=0&sync_timestamp=1616803552865&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
   integrity sha1-o92NpOuEqZbDbjMd+Y2Cq9drUW4=
+
+"@types/node@^15.0.2":
+  version "15.0.2"
+  resolved "https://registry.nlark.com/@types/node/download/@types/node-15.0.2.tgz#51e9c0920d1b45936ea04341aa3e2e58d339fb67"
+  integrity sha1-UenAkg0bRZNuoENBqj4uWNM5+2c=
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.nlark.com/@types/sizzle/download/@types/sizzle-2.3.3.tgz?cache=0&sync_timestamp=1619526769108&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fsizzle%2Fdownload%2F%40types%2Fsizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha1-/14vGQKWnTBSJaBHyKD9XJFc6+8=
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -3847,10 +3864,10 @@ typedarray@^0.0.6:
   resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.npm.taobao.org/typescript/download/typescript-4.2.3.tgz?cache=0&sync_timestamp=1617520767854&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
-  integrity sha1-OQYtgBmRLUNyYpjwlJPVmASMHOM=
+typescript@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.nlark.com/typescript/download/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
+  integrity sha1-hhC1l0feAo/aiYqK7w4QPxVtCWE=
 
 uglify-js@3.4.x:
   version "3.4.10"

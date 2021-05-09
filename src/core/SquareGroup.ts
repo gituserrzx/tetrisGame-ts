@@ -21,6 +21,7 @@ export class SquareGroup {
       }
       this._squares[i].point = point
     })
+    console.log(this._squares, this._centerPoint, this._shape)
   }
   set centerPoint (val: Point) {
     this._centerPoint = val

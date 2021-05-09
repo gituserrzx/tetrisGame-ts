@@ -1,3 +1,4 @@
+import { Game } from "./Game";
 import { SquareGroup } from "./SquareGroup";
 
 export interface Point {
@@ -26,6 +27,11 @@ export enum GameStatus {
 }
 
 export interface GameViewer {
+  showScore(number: number): void
+  init(game: Game): void
   showNext (tetris: SquareGroup): void
   switch (tetris: SquareGroup): void
+  onGamePause (): void
+  onGamePlay(): void
+  onGameOver(): void
 }
